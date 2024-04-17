@@ -1,0 +1,5 @@
+/client/node_modules
+/server/node_modules
+/client/credentials.js
+/server/.env
+/client/dist

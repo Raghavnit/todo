@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import {baseURL} from "../../../credentials"
 import axios from "axios";
 import "./styles.css"
 
@@ -14,7 +15,7 @@ const Login = ({setUserId}) => {
     // You'll update this function later...
     e.preventDefault();
     try {
-        const res = await axios.post("http://localhost:3000/login",{email,password});
+        const res = await axios.post(`${baseURL}/login`,{email,password});
         setUserId(res?.data);
         navigate('/');
     } catch (error) {

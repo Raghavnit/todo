@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import "./styles.css"
 import axios from 'axios'
+import { baseURL } from '../../../credentials'
 
 const Register = ({setUserId}) => {
   const [email, setEmail] = useState('')
@@ -16,7 +17,7 @@ const Register = ({setUserId}) => {
     e.preventDefault();
     try {
         setError('');
-        const res = await axios.post("http://localhost:3000/register",{name,email,password});
+        const res = await axios.post(`${baseURL}/register`,{name,email,password});
         // localStorage.setItem("userId",res?.data);
       setUserId(res?.data);
         navigate('/');
